@@ -8,10 +8,14 @@
 
     <color name="design_accent_color">#00E0C2</color>
 
-    <color name="design_gray_color">#D2B7DB</color>
-    <color name="design_gray_darker_color">#39393C</color>
+    <color name="design_gray_color">#DADADA</color>
+    <color name="design_gray_darker_color">#424242</color>
     <color name="design_gray_lighter_color">#D0D0D0</color>
 
     <color name="design_black">#000000</color>
     <color name="design_white">#FFFFFF</color>
+
+    <color name="design_zap_brand_color">#008295</color>
+    <color name="design_viva_brand_color">#1190cd</color>
+
 </resources>

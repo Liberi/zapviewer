@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ProductChooser</string>
+    <string name="portal_selection">Clique abaixo para filtrar os imóveis por portal</string>
+</resources>

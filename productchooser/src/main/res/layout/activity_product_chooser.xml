@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_gray_color"
+    tools:context=".ProductChooserActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/TextAppearance.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/design_medium"
+        android:text="@string/portal_selection"
+        app:layout_constraintBottom_toTopOf="@+id/button_select_zap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_select_zap"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/design_medium"
+        android:background="@color/design_zap_brand_color"
+        android:src="@drawable/logo_zap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/button_select_viva"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_margin="@dimen/design_medium"
+        android:background="@color/design_viva_brand_color"
+        android:src="@drawable/logo_vivareal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_select_zap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
