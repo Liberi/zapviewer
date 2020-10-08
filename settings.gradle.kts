@@ -1,3 +1,3 @@
-include(":productchooser")
-include(":app", ":design", ":component")
+include(":common")
+include(":app", ":design", ":component", ":productchooser")
 rootProject.name = "ZapViewer"

@@ -23,7 +23,7 @@ object Modules {
     const val network = ":network"
     const val dataBase = ":database"
     const val component = ":component"
-    const val productList = ":feature.productList"
-    const val productDetail = ":feature.productDetail"
-    const val productChooser = ":feature.productChooser"
+    const val productList = ":productList"
+    const val productDetail = ":productDetail"
+    const val productChooser = ":productchooser"
 }

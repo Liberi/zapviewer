@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.featuresplit.getFeatureName
+
 plugins {
     id(Plugins.android_application)
     id(Plugins.kotlin_android)
@@ -40,6 +42,7 @@ android {
 
 dependencies {
     implementation(project(Modules.design))
+    implementation(project(Modules.productChooser))
 
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
     implementation (Deps.kotlin_stdlib)

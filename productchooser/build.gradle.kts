@@ -1,5 +1,5 @@
 plugins {
-    id(Plugins.android_application)
+    id(Plugins.android_library)
     id(Plugins.kotlin_android)
     id(Plugins.kotlin_android_extensions)
     id(Plugins.kotlin_android_kapt)
@@ -10,7 +10,6 @@ android {
     buildToolsVersion(Versions.buildTools)
 
     defaultConfig {
-        applicationId = Config.app_id
         minSdkVersion(Versions.minSdk)
         targetSdkVersion(Versions.targetSdk)
         versionCode = Config.version_code
