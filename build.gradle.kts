@@ -1,4 +1,5 @@
 buildscript {
+    val kotlin_version by extra("1.3.72")
     repositories {
         google()
         jcenter()
@@ -6,6 +7,7 @@ buildscript {
     dependencies {
         classpath (Deps.build_gradle)
         classpath (Deps.kotlin_plugin)
+        "classpath"("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
 

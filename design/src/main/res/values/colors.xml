@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="design_primary_color">#00AC95</color>
+    <color name="design_primary_lighter_color">#00E0C2</color>
+
+    <color name="design_secondary_color">#C8D419</color>
+    <color name="design_secondary_lighter_color">#00E0C2</color>
+
+    <color name="design_accent_color">#00E0C2</color>
+
+    <color name="design_gray_color">#D2B7DB</color>
+    <color name="design_gray_darker_color">#39393C</color>
+    <color name="design_gray_lighter_color">#D0D0D0</color>
+
+    <color name="design_black">#000000</color>
+    <color name="design_white">#FFFFFF</color>
+</resources>

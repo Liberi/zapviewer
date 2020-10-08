@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+    implementation(project(Modules.design))
+
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
     implementation (Deps.kotlin_stdlib)
+    implementation (Deps.androidx_appcompat)
 }
