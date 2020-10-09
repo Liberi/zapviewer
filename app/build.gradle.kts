@@ -18,8 +18,6 @@ android {
         versionCode = Config.version_code
         versionName = Config.version_name
         testInstrumentationRunner = Config.test_runner
-
-        buildConfigField("String", "BASE_URL", BuildConfig.base_url)
     }
 
     buildTypes {
@@ -42,6 +40,8 @@ android {
 
 dependencies {
     implementation(project(Modules.design))
+    implementation(project(Modules.common))
+    implementation(project(Modules.network))
     implementation(project(Modules.productChooser))
 
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))

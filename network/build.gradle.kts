@@ -12,6 +12,8 @@ android {
         targetSdkVersion(Versions.targetSdk)
         versionCode = Config.version_code
         versionName = Config.version_name
+
+        buildConfigField("String", "BASE_URL", BuildConfig.base_url)
     }
 
     buildTypes {
@@ -23,6 +25,13 @@ android {
 }
 
 dependencies {
-    api(Deps.koin_core)
-    api(Deps.koin_viewmodel)
+    implementation(project(Modules.common))
+
+    implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
+    implementation (Deps.kotlin_stdlib)
+    implementation (Deps.androidx_ktx)
+
+    implementation (Deps.retrofit_core)
+    implementation (Deps.retrofit_converter)
+    implementation (Deps.retrofit_rxjava)
 }
