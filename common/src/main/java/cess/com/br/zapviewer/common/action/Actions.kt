@@ -8,7 +8,7 @@ const val PORTAL_SELECTION_ACTIVITY = "1"
 const val PRODUCT_LIST_ACTIVITY = "2"
 const val PRODUCT_DETAIL_ACTIVITY = "3"
 
-object Actions {
+class Actions {
     fun selectAction(action: String, context: Context, extras: Bundle) {
         val intent = Intent()
         intent.putExtras(extras)

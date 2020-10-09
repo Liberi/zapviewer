@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(project(Modules.design))
+    implementation(project(Modules.common))
 
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
     implementation (Deps.coil)
