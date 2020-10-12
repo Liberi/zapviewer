@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.withStyledAttributes
+import coil.load
 import com.synnapps.carouselview.CarouselView
 import com.synnapps.carouselview.ImageListener
 
@@ -34,11 +35,11 @@ class ProductCarouselView : ConstraintLayout {
         carouselView = findViewById(R.id.carousel_view);
     }
 
-    fun setupView(imageList: List<Int>) {
+    fun setupView(imageList: List<String>) {
         carouselView.pageCount = imageList.size;
 
         val imageListener = ImageListener { position, imageView ->
-            imageView.setImageResource(imageList[position])
+            imageView.load(imageList[position])
         }
 
         carouselView.setImageListener(imageListener)

@@ -8,7 +8,7 @@ object Config {
 }
 
 object BuildConfig {
-    const val base_url = "\"http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/sources/source-1.json/\""
+    const val base_url = "\"http://grupozap-code-challenge.s3-website-us-east-1.amazonaws.com/\""
 }
 
 object BuildType {
@@ -23,7 +23,7 @@ object Modules {
     const val network = ":network"
     const val dataBase = ":database"
     const val component = ":component"
-    const val productList = ":productList"
-    const val productDetail = ":productDetail"
+    const val productList = ":productlist"
+    const val productDetail = ":productdetail"
     const val productChooser = ":productchooser"
 }

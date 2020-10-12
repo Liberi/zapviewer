@@ -15,8 +15,6 @@ android {
         versionCode = Config.version_code
         versionName = Config.version_name
         testInstrumentationRunner = Config.test_runner
-
-        buildConfigField("String", "BASE_URL", BuildConfig.base_url)
     }
 
     buildTypes {

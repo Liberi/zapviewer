@@ -1,19 +1,10 @@
 package cess.com.br.zapviewer.common.action
 
-import android.content.Context
-import android.content.Intent
-import android.os.Bundle
-
-const val PORTAL_SELECTION_ACTIVITY = "1"
-const val PRODUCT_LIST_ACTIVITY = "2"
+const val PORTAL_SELECTION_ACTIVITY = "cess.com.br.zapviewer.feature.productchooser.ProductChooserActivity"
+const val PRODUCT_LIST_ACTIVITY = "cess.com.br.zapviewer.productlist.ui.ProductListActivity"
 const val PRODUCT_DETAIL_ACTIVITY = "3"
 
-class Actions {
-    fun selectAction(action: String, context: Context, extras: Bundle) {
-        val intent = Intent()
-        intent.putExtras(extras)
-        intent.action = action
+const val ZAP = "ZAP"
+const val REAL = "REAL"
 
-        context.startActivity(intent)
-    }
-}
+const val PORTAL_NAME_PARAM = "PORTAL_NAME_PARAM"

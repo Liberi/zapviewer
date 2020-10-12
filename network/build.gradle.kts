@@ -33,5 +33,5 @@ dependencies {
 
     implementation (Deps.retrofit_core)
     implementation (Deps.retrofit_converter)
-    implementation (Deps.retrofit_rxjava)
+    api (Deps.retrofit_rxjava)
 }

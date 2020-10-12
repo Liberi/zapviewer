@@ -30,13 +30,13 @@ data class GeoLocation (
 )
 
 data class Location (
-	@SerializedName("lon") val lon : Int,
-	@SerializedName("lat") val lat : Int
+	@SerializedName("lon") val lon : Double,
+	@SerializedName("lat") val lat : Double
 )
 
 data class PricingInfos (
-	@SerializedName("yearlyIptu") val yearlyIptu : Int,
-	@SerializedName("price") val price : Int,
+	@SerializedName("yearlyIptu") val yearlyIptu : String,
+	@SerializedName("price") val price : String,
 	@SerializedName("businessType") val businessType : String,
-	@SerializedName("monthlyCondoFee") val monthlyCondoFee : Int
+	@SerializedName("monthlyCondoFee") val monthlyCondoFee : String
 )

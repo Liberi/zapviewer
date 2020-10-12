@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/design_medium">
+
+    <cess.com.br.zapviewer.component.ProductCarouselView
+        android:id="@+id/carousel_view_product_row"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_product_type"
+        style="@style/TextAppearance.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/carousel_view_product_row"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="ALUGUEL" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_product_address"
+        style="@style/TextAppearance.SubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_product_type"
+        tools:text="Jardim Íris - São Paulo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_product_description"
+        style="@style/TextAppearance.SubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_product_address"
+        tools:text="1 Quarto(s), 1 Banheiro(s), 1 Vaga(s)" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_product_price"
+        style="@style/TextAppearance.SubTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Valor total: R$ 5500.00" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
