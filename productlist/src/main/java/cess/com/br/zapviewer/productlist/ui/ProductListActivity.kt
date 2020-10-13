@@ -25,6 +25,10 @@ class ProductListActivity : AppCompatActivity(), ProductListAdapter.OnClickProdu
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_list)
         initViewModel()
+
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
     }
 
     private fun initViewModel() {
@@ -77,6 +81,11 @@ class ProductListActivity : AppCompatActivity(), ProductListAdapter.OnClickProdu
 
     override fun onClickProductItem(product: Product) {
         startActivity(Intent(PRODUCT_DETAIL_ACTIVITY).putExtra(PRODUCT_DETAILS_PARAM, product))
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }
