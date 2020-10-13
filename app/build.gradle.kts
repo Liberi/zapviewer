@@ -44,6 +44,7 @@ dependencies {
     implementation(project(Modules.network))
     implementation(project(Modules.productChooser))
     implementation(project(Modules.productList))
+    implementation(project(Modules.productDetail))
 
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
     implementation (Deps.kotlin_stdlib)

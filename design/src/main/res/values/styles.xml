@@ -15,12 +15,18 @@
     </style>
 
     <style name="TextAppearance.Body">
-        <item name="android:textSize">@dimen/design_text_tiny</item>
+        <item name="android:textSize">@dimen/design_text_medium</item>
         <item name="android:textColor">@color/design_gray_darker_color</item>
     </style>
 
     <style name="TextAppearance.Price">
-        <item name="android:textSize">@dimen/design_medium</item>
+        <item name="android:textSize">@dimen/design_text_medium</item>
+        <item name="android:textColor">@color/design_black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Header">
+        <item name="android:textSize">@dimen/design_text_medium</item>
         <item name="android:textColor">@color/design_black</item>
         <item name="android:textStyle">bold</item>
     </style>

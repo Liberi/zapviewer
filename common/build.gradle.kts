@@ -1,6 +1,7 @@
 plugins {
     id(Plugins.android_library)
     id(Plugins.kotlin_android)
+    id(Plugins.kotlin_android_extensions)
 }
 
 android {
@@ -21,6 +22,8 @@ android {
         }
     }
 }
+
+androidExtensions { isExperimental = true }
 
 dependencies {
     api(Deps.koin_core)

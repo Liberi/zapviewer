@@ -1,0 +1,10 @@
+<resources>
+    <string name="product_price_info">R$ %s</string>
+    <string name="product_title_description">Imóvel para %s com %d quarto(s), %d m²</string>
+    <string name="rental">aluguel</string>
+    <string name="sale">venda</string>
+    <string name="rent_label">Aluguel</string>
+    <string name="iptu_label">IPTU</string>
+    <string name="condo_label">Condomínio</string>
+    <string name="total_label">Total</string>
+</resources>

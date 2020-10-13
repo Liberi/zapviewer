@@ -13,7 +13,8 @@ import cess.com.br.zapviewer.productlist.R
 import coil.transform.CircleCropTransformation
 
 class ProductListAdapter(
-    private val productList: List<Product>
+    private val productList: List<Product>,
+    private val listener: OnClickProductItem
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -29,11 +30,13 @@ class ProductListAdapter(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         with(productList[position]) {
             (holder as ProductListViewHolder).setup(
+                this,
                 type.typeName,
                 totalPrice.toString(),
                 "$bedrooms Quarto(s), $bathrooms Banheiro(s), $parkingSpaces Vaga(s)",
                 images,
-                "${address.neighborhood} - ${address.city}"
+                "${address.neighborhood} - ${address.city}",
+                listener
             )
         }
 
@@ -55,11 +58,13 @@ class ProductListAdapter(
         }
 
         fun setup(
+            product: Product,
             type: String,
             price: String,
             description: String,
             imageList: List<String>,
-            address: String
+            address: String,
+            listener: OnClickProductItem
         ) {
             productType?.text = type
             productPrice?.text = price
@@ -67,6 +72,15 @@ class ProductListAdapter(
             productAddress?.text = address
 
             productCarousel?.setupView(imageList)
+
+            this.itemView.setOnClickListener {
+                listener.onClickProductItem(product)
+            }
+
         }
+    }
+
+    interface OnClickProductItem {
+        fun onClickProductItem(product: Product)
     }
 }

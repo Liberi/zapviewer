@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/design_gray_color"
+    tools:context=".ProductDetailActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/DefaultToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="@string/app_name" />
+
+    <FrameLayout
+        android:id="@+id/carousel_view_holder"
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_medium"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <cess.com.br.zapviewer.component.ProductCarouselView
+            android:id="@+id/carousel_view_product_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_product_title"
+        style="@style/TextAppearance.Title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_medium"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/carousel_view_holder"
+        tools:text="Imóvel para alugar com 2 quarto(s), 25 m²" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_price"
+        style="@style/TextAppearance.Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_medium"
+        android:layout_marginEnd="@dimen/design_medium"
+        android:text="@string/rent_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_product_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_iptu"
+        style="@style/TextAppearance.Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        android:text="@string/iptu_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_price" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_condo"
+        style="@style/TextAppearance.Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        android:text="@string/condo_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_iptu" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_total_price"
+        style="@style/TextAppearance.Header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        android:text="@string/total_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_condo"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_price_value"
+        style="@style/TextAppearance.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_medium"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_product_title"
+        tools:text="R$ 1234,00" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_iptu_value"
+        style="@style/TextAppearance.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_price"
+        tools:text="R$ 1234,00" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_condo_value"
+        style="@style/TextAppearance.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_iptu"
+        tools:text="R$ 1234,00" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_view_total_price_value"
+        style="@style/TextAppearance.Body"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/design_medium"
+        android:layout_marginTop="@dimen/design_default"
+        android:layout_marginEnd="@dimen/design_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_condo"
+        tools:layout_editor_absoluteX="0dp"
+        tools:text="R$ 1234,00" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

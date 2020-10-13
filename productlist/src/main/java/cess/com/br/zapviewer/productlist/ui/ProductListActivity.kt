@@ -1,5 +1,6 @@
 package cess.com.br.zapviewer.productlist.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -7,12 +8,15 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import cess.com.br.zapviewer.common.action.PORTAL_NAME_PARAM
+import cess.com.br.zapviewer.common.action.PRODUCT_DETAILS_PARAM
+import cess.com.br.zapviewer.common.action.PRODUCT_DETAIL_ACTIVITY
+import cess.com.br.zapviewer.common.action.PRODUCT_LIST_ACTIVITY
 import cess.com.br.zapviewer.common.model.Product
 import cess.com.br.zapviewer.productlist.R
 import kotlinx.android.synthetic.main.activity_product_list.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ProductListActivity : AppCompatActivity() {
+class ProductListActivity : AppCompatActivity(), ProductListAdapter.OnClickProductItem {
 
     private val pageSize = 20
     private val viewModel: ProductListViewModel by viewModel()
@@ -46,7 +50,7 @@ class ProductListActivity : AppCompatActivity() {
 
         product_recycler_view.apply {
             layoutManager = linearLayoutManager
-            adapter = ProductListAdapter(products)
+            adapter = ProductListAdapter(products, this@ProductListActivity)
         }
 
         val scrollListener = object : RecyclerView.OnScrollListener() {
@@ -70,5 +74,9 @@ class ProductListActivity : AppCompatActivity() {
     }
 
     private fun getPortalName() = intent.getStringExtra(PORTAL_NAME_PARAM)
+
+    override fun onClickProductItem(product: Product) {
+        startActivity(Intent(PRODUCT_DETAIL_ACTIVITY).putExtra(PRODUCT_DETAILS_PARAM, product))
+    }
 
 }
