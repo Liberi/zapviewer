@@ -41,7 +41,6 @@ object ProductListMapper {
             listOfProduct.add(product)
         }
 
-
         return applyRules(listOfProduct, portalFlavor)
     }
 
