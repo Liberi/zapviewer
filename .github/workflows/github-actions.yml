@@ -53,5 +53,5 @@ jobs:
           java-version: 1.8
 
       # Execute unit tests
-      - name: Unit Test
-        run: ./gradlew testDebugUnitTest
+      - name: Productlist Unit Tests
+        run: ./gradlew :productlist:testDebugUnitTest
