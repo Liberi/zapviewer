@@ -7,6 +7,7 @@ buildscript {
     dependencies {
         classpath (Deps.build_gradle)
         classpath (Deps.kotlin_plugin)
+        classpath ("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.14.2")
         "classpath"("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
     }
 }
@@ -16,6 +17,11 @@ allprojects {
         google()
         jcenter()
     }
+    
+    apply {
+        from("$rootDir/detekt.gradle")
+    }
+
 }
 
 tasks {

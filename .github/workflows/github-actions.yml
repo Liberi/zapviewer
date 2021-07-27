@@ -1,12 +1,11 @@
 name: PR Pipeline Workflow
 
-# Execute PR Pipeline Workflow on pull requests to master
+# Execute PR Pipeline Workflow on pull requests to main
 on:
   pull_request:
     branches:
       - main
-
-
+      -
 jobs:
   ##########################################################
   # Lint Job:
@@ -21,6 +20,7 @@ jobs:
         with:
           java-version: 1.8
       - run: ./gradlew lint
+      - run: ./gradlew detekt
 
   ##########################################################
   # Assemble Job:

@@ -1,0 +1,20 @@
+apply plugin: "io.gitlab.arturbosch.detekt"
+
+detekt {
+    failFast = true
+    buildUponDefaultConfig = true
+    baseline = file("$projectDir/config/baseline.xml")
+    parallel = true
+
+    reports {
+        txt.enabled = false
+        html.enabled = true
+        xml.enabled = true
+    }
+}
+
+tasks.detekt.jvmTarget = "1.8"
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.17.0-RC3"
+}
