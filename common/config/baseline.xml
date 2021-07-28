@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>LongParameterList:Product.kt$Product$( val parkingSpaces: Int, val bathrooms: Int, val bedrooms: Int, val images: List&lt;String&gt;, val address: ProductAddress, val yearlyIptu: Double, val condoFee: Double, val totalPrice: Double, val price: Double, val type: BusinessType, val usableAreas: Int )</ID>
+  </CurrentIssues>
+</SmellBaseline>

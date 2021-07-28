@@ -1,0 +1,67 @@
+name: PR Pipeline Workflow
+
+# Execute PR Pipeline Workflow on pull requests to main
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  ##########################################################
+  # Lint Job:
+  # Install dependencies and execute lint debug
+  ##########################################################
+  build-debug:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.kt') }}
+
+      - name: Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.0'
+
+      - name: Assemble Debug
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+         lane: 'build'
+
+  linters:
+    needs: build-debug
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Productlist Unit Tests
+        run: ./gradlew lint detekt
+
+  unit-tests:
+    needs: build-debug
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+
+      - name: Productlist Unit Tests
+        run: ./gradlew :productlist:testDebugUnitTest
