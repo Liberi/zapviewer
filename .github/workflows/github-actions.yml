@@ -28,11 +28,15 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.kt') }}
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+      - name: Fastlane
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '2.7.2'
 
       - name: Assemble Debug
-        run: ./gradlew assembleDebug
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+         lane: 'build'
 
   linters:
     needs: build-debug
