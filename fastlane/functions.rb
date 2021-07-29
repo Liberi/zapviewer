@@ -33,49 +33,6 @@ def failure(message, image = "")
   raise RuntimeError, message
 end
 
-# ----------------- Send message on Slack ----------------- #
-def notify(options)
-  fields = [{
-    title: "Application",
-    value: options[:name],
-    short: true
-  }]
-
-  unless options[:version].nil? then
-    fields << {
-      title: "Version",
-      value: options[:version],
-      short: true
-    }
-  end
-
-  unless options[:platform].nil? then
-    if options[:platform] == "android" then
-      icon = "https://avatars.slack-edge.com/2020-01-02/879774548883_130b9d6df6ea40b3509a_72.png"
-    else
-      icon = "https://avatars.slack-edge.com/temp/2020-02-12/935992540242_4cdcac5375f580cee561.png"
-    end
-  end
-
-  slack(
-    slack_url: ENV["SLACK_URL"],
-    username: options[:username].nil? ? "Release Train 🚂" : options[:username],
-    message: options[:message],
-    success: options[:success].nil? ? true : options[:success],
-    icon_url: options[:icon],
-    default_payloads: [],
-    payload: {
-      "Date and Time" => Time.now.strftime("%d/%m/%Y %H:%M")
-    },
-    attachment_properties: {
-      thumb_url: options[:icon],
-      image_url: options[:image],
-      fields: fields,
-      footer: options[:platform].upcase,
-      footer_icon: icon
-    })
-end
-
 # ----------------- Create badge ----------------- #
 def badge(options)
   svg = <<-EOF
@@ -170,34 +127,6 @@ def get_issues(repo, changelog)
 
   return issues
 end
-
-
-# ----------------- Close issues ----------------- #
-def close_issues(repo, changelog)
-
-  issues = get_issues(repo, changelog)
-
-  # Close issues
-  issues.each do |issue|
-    github_close_issue(repo: "olxbr/squad-mobile-apps", issue: issue[:number], author: "ci-mobile-grupozap")
-  end
-
-  return issues
-end
-
-# -------------- Get Public Changelog ------------- #
-def get_whatsnew(issues)
-  whatsnew = []
-  issues.each do |issue|
-    news = github_whats_new(repo: "olxbr/squad-mobile-apps", issue: issue[:number])
-    if !whatsnew.include? news
-      whatsnew.push(news)
-    end
-  end
-
-  return whatsnew
-end
-
 
 # ----------------- Create Release ----------------- #
 def create_release(repo, version, changelog)
