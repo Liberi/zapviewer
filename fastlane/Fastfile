@@ -23,7 +23,7 @@ lane :tag do |options|
   begin
 
     # Create a new tag
-     (tag: options[:version])
+    add_git_tag(tag: options[:version])
 
     # Push tag to remote
     push_git_tags(tag: options[:version])
