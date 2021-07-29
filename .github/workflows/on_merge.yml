@@ -78,7 +78,7 @@ jobs:
         with:
           ruby-version: '2.7.0'
 
-      - name: Assemble Debug
+      - name: Push Tag
         uses: maierj/fastlane-action@v2.0.1
         with:
           lane: 'tag version:`cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`'
