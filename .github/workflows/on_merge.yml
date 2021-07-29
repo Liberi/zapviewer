@@ -65,9 +65,27 @@ jobs:
       - name: Productlist Unit Tests
         run: ./gradlew :productlist:testDebugUnitTest
 
+  tag:
+    name: Tag
+    needs: [linters, unit-tests]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Fastlane
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '2.7.0'
+
+      - name: Assemble Debug
+        uses: maierj/fastlane-action@v2.0.1
+        with:
+          lane: 'tag version:`cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`'
+
   apk:
     name: Generate APK
-    needs: [linters, unit-tests]
+    needs: tag
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
