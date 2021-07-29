@@ -81,7 +81,7 @@ jobs:
       - name: Push Tag
         uses: maierj/fastlane-action@v2.0.1
         with:
-          lane: 'tag version:`cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`'
+          lane: tag version:`cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`
 
   apk:
     name: Generate APK
