@@ -1,5 +1,39 @@
 require 'fastlane_core'
 
+#------------------------------- Default project config -------------------------------#
+$project = {
+  :path => "#{Dir.pwd}/..",
+  :platform => "android"
+}
+
+#------------------------------ Get properties from file ------------------------------#
+def version(file)
+  properties = {}
+  IO.foreach(file) do |line|
+    properties[$1.strip] = $2 if line =~ /([^=]*)=(.*)\/\/(.*)/ || line =~ /([^=]*)=(.*)/
+  end
+
+  return properties
+end
+
+#------------------------------ Update properties on file -----------------------------#
+def updateVersion(file, version)
+  properties = {}
+  IO.foreach(file) do |line|
+    properties[$1.strip] = $2 if line =~ /([^=]*)=(.*)\/\/(.*)/ || line =~ /([^=]*)=(.*)/
+  end
+
+  properties["version"] = version
+  properties["code"] = properties["code"].to_i + 1
+
+  file = File.new(file, "w+")
+  properties.each do |key,value|
+    file.puts "#{key}=#{value}\n"
+  end
+  file.close
+
+  return properties
+end
 #-------------------------------- Get default options -------------------------------#
 def mergeDefaults(options)
   return $project = $project.merge!(options)
