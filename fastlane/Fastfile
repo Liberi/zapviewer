@@ -1,44 +1,43 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
+desc "Build"
+lane :build do
+  gradle(task: "assembleRelease")
+end
 
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+#------------------------------------- Create new tag -------------------------------------#
+desc "Create new tag"
+lane :tag do |options|
 
-default_platform(:android)
+  options = mergeDefaults(options)
+  validateRequiredParams(options, [:name, :version])
 
-platform :android do
-  desc "Runs all the tests"
-  lane :test do
-    gradle(task: "test")
+  # Check if the build is running on local machine
+  if !is_ci? then
+
+    # Branch must be master or main
+    ensure_git_branch(branch: "(main|master)")
+
+    # Git status has to be clean
+    ensure_git_status_clean
   end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
+  begin
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store
-  end
+    # Create a new tag
+    add_git_tag(tag: options[:version])
 
-  desc "Build"
-  lane :build do
-    gradle(task: "assembleRelease")
-  end
+    # Push tag to remote
+    push_git_tags(tag: options[:version])
 
+    # Notify
+    success(
+      "🔖  New tag `#{options[:version]}` has been created",
+      "https://media.giphy.com/media/lfbxexWy71b6U/giphy.gif")
+
+  rescue => exception
+
+    # Notify
+    failure(
+      exception.to_s,
+      "https://media.giphy.com/media/ZBWUA0TVe2eJhSS5S4/giphy-downsized.gif")
+  end
 end
