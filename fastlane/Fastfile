@@ -1,9 +1,14 @@
+def setProjectVersion(version)
+  mergeDefaults({
+    :version => version,
+  })
+end
+
 desc "Build"
 lane :build do
   gradle(task: "assembleRelease")
 end
 
-#------------------------------------- Create new tag -------------------------------------#
 desc "Create new tag"
 lane :tag do |options|
 
