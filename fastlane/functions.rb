@@ -3,7 +3,9 @@ require 'fastlane_core'
 #------------------------------- Default project config -------------------------------#
 $project = {
   :path => "#{Dir.pwd}/..",
-  :platform => "android"
+  :platform => "android",
+  :name => "zapViewer",
+  :version => "0.0.1"
 }
 
 #------------------------------ Get properties from file ------------------------------#
@@ -46,7 +48,6 @@ def success(message, image = "")
     platform: $project[:platform],
     name: $project[:name],
     image: image,
-    icon: $project[:icon],
     version: $project[:version])
 
   FastlaneCore::UI.success message
