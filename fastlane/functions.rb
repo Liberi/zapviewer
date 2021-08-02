@@ -4,8 +4,7 @@ require 'fastlane_core'
 $project = {
   :path => "#{Dir.pwd}/..",
   :platform => "android",
-  :name => "zapViewer",
-  :version => "0.0.1"
+  :name => "zapViewer"
 }
 
 #------------------------------ Get properties from file ------------------------------#
