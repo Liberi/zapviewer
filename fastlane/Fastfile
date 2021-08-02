@@ -2,7 +2,7 @@ import("functions.rb")
 
 desc "Build"
 lane :build do
-  gradle(task: "assembleRelease")
+  gradle(task: "assembleDebug)
 end
 
 desc "Create new tag"
