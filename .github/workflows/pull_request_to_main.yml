@@ -13,7 +13,6 @@ jobs:
   ##########################################################
   build-debug:
     runs-on: ubuntu-latest
-    needs: tag
     steps:
       - uses: actions/checkout@v2
 
