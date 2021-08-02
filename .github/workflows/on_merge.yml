@@ -27,7 +27,7 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.kt') }}
 
-      - name: Fastlane
+      - name: F`astlane
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.0'
@@ -73,15 +73,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Fastlane
-        uses: ruby/setup-ruby@v1
+      - name: Create tag
+        uses: actions/github-script@v3
         with:
-          ruby-version: '2.7.0'
-
-      - name: Push Tag
-        uses: maierj/fastlane-action@v2.0.1
-        with:
-          lane: tag version:`cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`
+          github-token: ${{ github.token }}
+          script: |
+            github.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: `cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`,
+              sha: context.sha
+            })
 
   apk:
     name: Generate APK
