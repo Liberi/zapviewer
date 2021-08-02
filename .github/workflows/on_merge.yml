@@ -81,7 +81,7 @@ jobs:
             github.git.createRef({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              ref: `cat ~/application/<< pipeline.parameters.project >>/version.properties | grep "version" | cut -d'=' -f2`,
+              ref: "refs/tags/v0.0.1",
               sha: context.sha
             })
 
