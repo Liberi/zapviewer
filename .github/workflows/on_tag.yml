@@ -21,7 +21,7 @@ jobs:
             ~/.gradle/wrapper
           key: ${{ runner.os }}-${{ hashFiles('**/*.gradle*') }}-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}-${{ hashFiles('**/buildSrc/**/*.kt') }}
 
-      - name: F`astlane
+      - name: Fastlane
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '2.7.0'
