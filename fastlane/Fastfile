@@ -8,37 +8,9 @@ end
 desc "Create new tag"
 lane :tag do |options|
 
-  options = mergeDefaults(options)
-  validateRequiredParams(options, [:name, :version])
-
-  # Check if the build is running on local machine
-  if !is_ci? then
-
-    # Branch must be master or main
-    ensure_git_branch(branch: "(main|master)")
-
-    # Git status has to be clean
-    ensure_git_status_clean
-  end
-
-  begin
-
     # Create a new tag
     add_git_tag(tag: options[:version])
 
     # Push tag to remote
     push_git_tags(tag: options[:version])
-
-    # Notify
-    success(
-      "🔖  New tag `#{options[:version]}` has been created",
-      "https://media.giphy.com/media/lfbxexWy71b6U/giphy.gif")
-
-  rescue => exception
-
-    # Notify
-    failure(
-      exception.to_s,
-      "https://media.giphy.com/media/ZBWUA0TVe2eJhSS5S4/giphy-downsized.gif")
-  end
 end
