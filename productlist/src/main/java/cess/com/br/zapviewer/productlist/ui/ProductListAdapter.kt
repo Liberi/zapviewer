@@ -3,14 +3,11 @@ package cess.com.br.zapviewer.productlist.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import cess.com.br.zapviewer.common.model.Product
-import cess.com.br.zapviewer.common.model.ProductAddress
 import cess.com.br.zapviewer.component.ProductCarouselView
 import cess.com.br.zapviewer.productlist.R
-import coil.transform.CircleCropTransformation
 
 class ProductListAdapter(
     private val productList: List<Product>,
